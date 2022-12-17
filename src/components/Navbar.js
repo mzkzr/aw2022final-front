@@ -6,7 +6,6 @@ import { Cervezas } from './Cervezas';
 import { Cervecerias } from './Cervecerias';
 import { Productores } from './Productores';
 import { AuthForm } from './AuthForm';
-import { Favoritos } from './Favoritos';
 import { DetalleProductor } from './DetalleProductor';
 import { DetalleCerveza } from './DetalleCerveza';
 import { DetalleCerveceria } from './DetalleCerveceria';
@@ -30,8 +29,6 @@ export const Navbar = () => {
 							</li>
 							<li><h5 className="text-center mb-0">{localStorage.getItem("name")}</h5></li>
 							<li><p className="text-center mb-2">{localStorage.getItem("email")}</p></li>
-							<li><hr className="dropdown-divider"/></li>
-							<li><a style={{textAlign: "center"}} className='nav-link' href="/favoritos">Favoritos</a></li>
 							<li><hr className="dropdown-divider"/></li>
 							<li><a href="/" className="dropdown-item" style={{textAlign: "center"}} onClick={logout}>Salir</a></li>
 						</ul>
@@ -86,7 +83,6 @@ export const Navbar = () => {
 				<Route exact path='/cervecerias' element={<Cervecerias/>}></Route>
 				<Route exact path='/productores' element={<Productores/>}></Route>
 				<Route exact path='/login' element={<AuthForm/>}></Route>
-				<Route exact path='/favoritos' element={<Favoritos/>}></Route>
 				<Route path='/detalleProductor/:id' element={<DetalleProductor/>}></Route>
 				<Route path='/detalleCerveza/:id' element={<DetalleCerveza/>}></Route>
 				<Route path='/detalleCerveceria/:id' element={<DetalleCerveceria/>}></Route>

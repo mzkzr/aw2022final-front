@@ -90,7 +90,7 @@ export const Cervecerias = () => {
 			<hr/>
 			<div className='row item-list'>
 				{cervecerias.map(cerveceria =>
-					<div key={cerveceria.id} className='col-sm-12 col-md-auto'>
+					<div key={cerveceria.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 						<div className='card'>
 							<div className='card-header'>
 								<a href={"/detalleCerveceria/"+cerveceria.id}>{cerveceria.nombre}</a>
@@ -99,7 +99,7 @@ export const Cervecerias = () => {
 								Provincia: {cerveceria.provincia}<br/>
 								Localidad: {cerveceria.localidad}<br/>
 								Domicilio: {cerveceria.domicilio}<br/>
-								Horario de atención: {cerveceria.horario_atencion}
+								{cerveceria.horario_atención ? <div>Horario de atención: {cerveceria.horario_atencion}</div> : <></>}
 							</div>
 						</div>
 					</div>

@@ -90,7 +90,7 @@ export const Productores = () => {
 			<hr/>
 			<div className="row item-list">
 				{productores.map(productor =>
-					<div key={productor.id} className="col-sm-12 col-md-auto">
+					<div key={productor.id} className="col-sm-12 col-md-auto d-md-flex align-items-stretch">
 						<div className="card">
 							<div className="card-header">
 								<a href={"/detalleProductor/"+productor.id}>{productor.nombre}</a>

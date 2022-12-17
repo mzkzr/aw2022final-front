@@ -33,14 +33,15 @@ export const DetalleCerveza = () => {
 			<br/>
 			<h5><b>IBU:</b> {cerveza.ibu}</h5>
 			<h5><b>ABV:</b> {cerveza.abv}</h5>
-			<h5><b>SRM:</b> {cerveza.srm}</h5>
-			<h5><b>OG:</b> {cerveza.og}</h5>
-			<br/><hr/><hr/><br/>
+			{cerveza.srm ? <div><h5><b>SRM:</b> {cerveza.srm}</h5></div> : <></>}
+			{cerveza.og ? <div><h5><b>OG:</b> {cerveza.og}</h5></div> : <></>}
+			{cerveza.descripcion ? <div><br/><p className="desc-cerveza"><b><i>"{cerveza.descripcion}"</i></b></p></div> : <></>}
+			<hr/><hr/><br/>
 			<h2>Cervecerías que la comercializan</h2>
 			<hr/>
 			<div className='row item-list'>
 				{cervecerias.map(cerveceria =>
-					<div key={cerveceria.id} className='col-sm-12 col-md-auto'>
+					<div key={cerveceria.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 						<div className='card'>
 							<div className='card-header'>
 								<a href={"/detalleCerveceria/"+cerveceria.id}>{cerveceria.nombre}</a>
@@ -49,7 +50,7 @@ export const DetalleCerveza = () => {
 								Provincia: {cerveceria.provincia}<br/>
 								Localidad: {cerveceria.localidad}<br/>
 								Domicilio: {cerveceria.domicilio}<br/>
-								Horario de atención: {cerveceria.horario_atencion}
+								{cerveceria.horario_atención ? <div>Horario de atención: {cerveceria.horario_atencion}</div> : <></>}
 							</div>
 						</div>
 					</div>

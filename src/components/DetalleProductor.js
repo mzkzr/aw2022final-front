@@ -39,7 +39,7 @@ export const DetalleProductor = () => {
 			<hr/>
 			<div className='row item-list'>
 				{cervezas.map(cerveza =>
-					<div key={cerveza.id} className='col-sm-12 col-md-auto'>
+					<div key={cerveza.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 						<div className='card'>
 							<div className='card-header'>
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>

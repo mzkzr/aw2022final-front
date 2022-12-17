@@ -10,12 +10,14 @@ export const Inicio = () => {
             <div id="panel-bienvenida">
                 <img src={logo} alt="lupulo" width="128"/>
                 <br/>
-                <h1><i>"Encuentra esa cerveza que estás buscando"</i></h1>
+                <h1><i>"Encuentre esa cerveza que está buscando"</i></h1>
                 <br/>
-                <h5><i>
-                    Al igual que tu, somos fanáticos de ese maravilloso elixir llamado <b>cerveza</b>.<br/>
-                    Es por eso que queremos ayudarte a encontrar la cerveza que mejor se adapte a tus gustos.
-                </i></h5>            
+				<p style={{fontSize: "large"}}>
+					<i>
+						Al igual que usted, somos fanáticos de ese maravilloso elixir llamado <b>cerveza</b>.<br/>
+						Es por eso que queremos ayudarle a encontrar la cerveza que mejor se adapte a sus gustos.
+					</i>
+				</p>    
             </div>
 			<br/><hr/><br/>
             <div className='panel-front row'>
@@ -23,7 +25,7 @@ export const Inicio = () => {
 					<img src={cervezas} alt="cervezas" />
 				</div>
 				<div className='panel-text col-md-6 col-sm-12'>
-					<h4>Explora las diferentes carateriscticas que le dan a cada variedad de cerveza su sabor y aroma particular</h4>
+					<p>Explore las diferentes carateriscticas que le dan a cada variedad de cerveza su sabor y aroma particular</p>
 				</div>
             </div>
 			<br/><hr/><br/>
@@ -32,7 +34,7 @@ export const Inicio = () => {
 					<img src={cerveceria} alt="cerveceria" />
 				</div>
 				<div className='panel-text col-md-6 col-sm-12'>
-					<h4>Descubre cervecerias y entérate de la variedad de cervezas que ofrece cada una de ellas</h4>
+					<p>Descubra cervecerias y entérate de la variedad de cervezas que ofrece cada una de ellas</p>
 				</div>
             </div>
 			<br/><hr/><br/>
@@ -41,7 +43,7 @@ export const Inicio = () => {
 					<img src={productor} alt="productor" />
 				</div>
 				<div className='panel-text col-md-6 col-sm-12'>
-					<h4>Infórmate de quién produce tus cervezas favoritas, y que otras variedades tiene en su catálogo</h4>
+					<p>Infórmese de quién produce sus cervezas favoritas, y que otras variedades tiene en su catálogo</p>
 				</div>
             </div>
 			<br/>

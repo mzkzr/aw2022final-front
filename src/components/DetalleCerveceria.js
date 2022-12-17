@@ -35,13 +35,13 @@ export const DetalleCerveceria = () => {
 			<br/>
 			<h5><b>CUIT:</b> {cerveceria.cuit}</h5>
 			<h5><b>Domicilio:</b> {cerveceria.domicilio}</h5>
-			<h5><b>Horario de atención:</b> {cerveceria.horario_atención}</h5>
+			{cerveceria.horario_atención ? <div><h5><b>OG:</b> {cerveceria.horario_atención}</h5></div> : <></>}
 			<br/><hr/><hr/><br/>
 			<h2>Cervezas que comercializa</h2>
 			<hr/>
 			<div className='row item-list'>
 				{cervezas.map(cerveza =>
-					<div key={cerveza.id} className='col-sm-12 col-md-auto'>
+					<div key={cerveza.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 						<div className='card'>
 							<div className='card-header'>
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>

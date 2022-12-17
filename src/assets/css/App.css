@@ -2,6 +2,19 @@
     background-color: rgb(202, 140, 58);
 }
 
+.nav-item {
+    font-size: 1.25rem;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 Body {
     background-color: burlywood;
 }
@@ -30,6 +43,7 @@ Body {
 
 .panel-front .panel-text {
     align-self: center;
+    font-size: x-large;
 }
 
 #page-footer {
@@ -43,7 +57,12 @@ Body {
 }
 
 #footer-content img {
-    max-width: 5%;
+    max-width: 25%;
+}
+
+#footer-content p u {
+    font-weight: bold;
+    font-size: x-large;
 }
 
 .backToTop {
@@ -63,6 +82,11 @@ Body {
     gap: 1rem;
 }
 
+.item-list .card-header a {
+    font-weight: bold;
+    color: black;
+}
+
 #circle-avatar {
     display: grid;
     width: 100px;
@@ -77,6 +101,21 @@ Body {
     font-weight: bold;
 }
 
-.dropdown-menu {
-    
+#redes-list {
+    font-size: xx-large;
+    gap: 0.25rem;
+}
+
+#redes-list i,
+#links-interes p {
+    cursor: pointer;
+}
+
+#links-interes p {
+    font-size: large;
+    font-weight: bold;
+}
+
+.desc-cerveza {
+    font-size: x-large;
 }
