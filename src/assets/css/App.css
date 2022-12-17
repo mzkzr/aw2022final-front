@@ -1,0 +1,82 @@
+.navbar {
+    background-color: rgb(202, 140, 58);
+}
+
+Body {
+    background-color: burlywood;
+}
+
+.main-body {
+    width: 85%;
+    min-height: 68vh;
+    margin: 2rem auto;
+}
+
+#panel-bienvenida {
+    padding: 1rem;
+    text-align: center;
+}
+
+.panel-front {
+    padding: 1rem;
+    text-align: center;
+    gap: 1rem;
+}
+
+.panel-front img {
+    border-radius: 1rem;
+    max-width: 100%;
+}
+
+.panel-front .panel-text {
+    align-self: center;
+}
+
+#page-footer {
+    background-color: rgb(202, 140, 58);
+    padding: 1.5rem;
+}
+
+#footer-content {
+    width: 85%;
+    margin: auto;
+}
+
+#footer-content img {
+    max-width: 5%;
+}
+
+.backToTop {
+    bottom: 25px;
+    right: 25px;
+    position: fixed;
+    color: rgb(136, 73, 48);
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+.backToTop:hover {
+    color: white;
+}
+
+.item-list {
+    gap: 1rem;
+}
+
+#circle-avatar {
+    display: grid;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffbd30;
+    place-items: center;   
+}
+
+#circle-avatar span {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    
+}
