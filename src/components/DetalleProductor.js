@@ -9,14 +9,14 @@ export const DetalleProductor = () => {
 
 	useEffect(() => {
 		const fetchProductor = async () => {
-			const response = await fetch("http://aw2022final.herokuapp.com/api/productores/"+params.id),
+			const response = await fetch("https://aw2022final.herokuapp.com/api/productores/"+params.id),
 				data = await response.json()
 
 			setProductor(data.data)
 		}
 
 		const fetchCervezas = async () => {
-			const response = await fetch('http://aw2022final.herokuapp.com/api/cervezas?productor_id=' + params.id),
+			const response = await fetch('https://aw2022final.herokuapp.com/api/cervezas?productor_id=' + params.id),
 				data = await response.json()
 
 			setCervezas(data.data)
