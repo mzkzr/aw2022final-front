@@ -42,11 +42,11 @@ export const DetalleCerveceria = () => {
 					{cerveceria.email ? <h5><b>Email:</b> {cerveceria.email}</h5> : <></>}
 					<br/>
 					<div className="row">
-						{cerveceria.instagram ? <a href={cerveceria.instagram} className="col-auto" title="Instagram" target='_blank' rel='noreferrer'>
+						{cerveceria.instagram ? <a href={"https://"+cerveceria.instagram} className="col-auto" title="Instagram" target='_blank' rel='noreferrer'>
 													<i className="bi bi-instagram" style={{fontSize: "2.25rem", color: "#f401c6"}}></i></a> : <></>}
-						{cerveceria.facebook ? <a href={cerveceria.facebook} className="col-auto" title="Facebook" target='_blank' rel='noreferrer'>
+						{cerveceria.facebook ? <a href={"https://"+cerveceria.facebook} className="col-auto" title="Facebook" target='_blank' rel='noreferrer'>
 													<i className="bi bi-facebook" style={{fontSize: "2.25rem"}}></i></a> : <></>}
-						{cerveceria.youtube ? <a href={cerveceria.youtube} className="col-auto" title="Youtube" target='_blank' rel='noreferrer'>
+						{cerveceria.youtube ? <a href={"https://"+cerveceria.youtube} className="col-auto" title="Youtube" target='_blank' rel='noreferrer'>
 													<i className="bi bi-youtube" style={{fontSize: "2.25rem", color: "red"}}></i></a> : <></>}
 					</div>
 				</div>

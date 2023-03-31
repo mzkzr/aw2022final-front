@@ -40,11 +40,11 @@ export const DetalleProductor = () => {
 					{productor.email ? <h5><b>Email:</b> {productor.email}</h5> : <></>}
 					<br/>
 					<div className="row">
-						{productor.instagram ? <a href={productor.instagram} className="col-auto" title="Instagram" target='_blank' rel='noreferrer'>
+						{productor.instagram ? <a href={"https://"+productor.instagram} className="col-auto" title="Instagram" target='_blank' rel='noreferrer'>
 													<i className="bi bi-instagram" style={{fontSize: "2.25rem", color: "#f401c6"}}></i></a> : <></>}
-						{productor.facebook ? <a href={productor.facebook} className="col-auto" title="Facebook" target='_blank' rel='noreferrer'>
+						{productor.facebook ? <a href={"https://"+productor.facebook} className="col-auto" title="Facebook" target='_blank' rel='noreferrer'>
 													<i className="bi bi-facebook" style={{fontSize: "2.25rem"}}></i></a> : <></>}
-						{productor.youtube ? <a href={productor.youtube} className="col-auto" title="Youtube" target='_blank' rel='noreferrer'>
+						{productor.youtube ? <a href={"https://"+productor.youtube} className="col-auto" title="Youtube" target='_blank' rel='noreferrer'>
 													<i className="bi bi-youtube" style={{fontSize: "2.25rem", color: "red"}}></i></a> : <></>}
 					</div>
 					<br/>
