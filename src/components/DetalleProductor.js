@@ -33,7 +33,6 @@ export const DetalleProductor = () => {
 			<h4>{productor.provincia}</h4>
 			<br/>
 			<h5><b>Domicilio:</b> {productor.domicilio}</h5>
-			<h5><b>CUIT:</b> {productor.cuit}</h5>
 			<br/><hr/><hr/><br/>
 			<h2>Cervezas que produce</h2>
 			<hr/>

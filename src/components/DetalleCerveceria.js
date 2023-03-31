@@ -33,7 +33,6 @@ export const DetalleCerveceria = () => {
 			<h3>{cerveceria.localidad}</h3>
 			<h4>{cerveceria.provincia}</h4>
 			<br/>
-			<h5><b>CUIT:</b> {cerveceria.cuit}</h5>
 			<h5><b>Domicilio:</b> {cerveceria.domicilio}</h5>
 			{cerveceria.horario_atención ? <div><h5><b>OG:</b> {cerveceria.horario_atención}</h5></div> : <></>}
 			<br/><hr/><hr/><br/>
