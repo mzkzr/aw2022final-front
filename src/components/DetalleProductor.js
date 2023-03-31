@@ -53,7 +53,7 @@ export const DetalleProductor = () => {
 					{productor.media && productor.media.length && productor.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 							<a href={"https://aw2022final.herokuapp.com"+imagen.original_url}  target='_blank' rel='noreferrer'>
-								<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
+								<img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
 							</a>
 						</div>
 					)}
