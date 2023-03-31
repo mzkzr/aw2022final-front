@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import botellita from '../assets/images/botellita.png'
 
 export const DetalleCerveceria = () => {
 	const params = useParams(),
@@ -52,7 +53,7 @@ export const DetalleCerveceria = () => {
 				<div className="col-8 row item-list">
 					{cerveceria.media && cerveceria.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-							<img src={imagen.original_url} alt={imagen.file_name}/>
+							<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
 						</div>
 					)}
 				</div>
@@ -69,6 +70,10 @@ export const DetalleCerveceria = () => {
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>
 							</div>
 							<div className='card-body'>
+								{cerveza.media
+									? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={96} height={96}/>
+									: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
+								<hr/>
 								IBU: {cerveza.ibu}<br/>
 								ABV: {cerveza.abv}<br/>
 								SRM: {cerveza.srm}<br/>

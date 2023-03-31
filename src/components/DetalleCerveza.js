@@ -41,7 +41,7 @@ export const DetalleCerveza = () => {
 				<div className="row item-list col-8">
 					{cerveza.media && cerveza.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-							<img src={imagen.original_url} alt={imagen.file_name}/>
+							<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
 						</div>
 					)}
 				</div>
