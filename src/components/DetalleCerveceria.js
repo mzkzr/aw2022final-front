@@ -9,14 +9,14 @@ export const DetalleCerveceria = () => {
 
 	useEffect(() => {
 		const fetchCerveceria = async () => {
-			const response = await fetch("http://localhost:8000/api/cervecerias/"+params.id),
+			const response = await fetch("http://aw2022final.herokuapp.com/api/cervecerias/"+params.id),
 				data = await response.json()
 
 			setCerveceria(data.data)
 		}
 
 		const fetchCervezas = async () => {
-			const response = await fetch('http://localhost:8000/api/cervezas?cerveceria_id=' + params.id),
+			const response = await fetch('http://aw2022final.herokuapp.com/api/cervezas?cerveceria_id=' + params.id),
 				data = await response.json()
 
 		 	setCervezas(data.data)

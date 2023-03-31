@@ -15,7 +15,7 @@ export const AuthForm = () => {
 		e.preventDefault()
 
 		if (authMode === "signin") {
-			let url = "http://localhost:8000/api/login?email=" + e.target.email.value + "&password=" + e.target.password.value
+			let url = "http://aw2022final.herokuapp.com/api/login?email=" + e.target.email.value + "&password=" + e.target.password.value
 
 			fetch(url)
 			.then(response => response.json())
@@ -35,7 +35,7 @@ export const AuthForm = () => {
 				}				
 			})
 		} else {
-			let url = "http://localhost:8000/api/register",
+			let url = "http://aw2022final.herokuapp.com/api/register",
 				params = {
 					name: e.target.name.value,
 					email: e.target.email.value,

@@ -9,14 +9,14 @@ export const Cervecerias = () => {
 
 	useEffect(() => {
 		const fetchCervecerias = async () => {
-		   	const response = await fetch('http://localhost:8000/api/cervecerias'),
+		   	const response = await fetch('http://aw2022final.herokuapp.com/api/cervecerias'),
 		   		data = await response.json()
 
 			setCervecerias(data.data)
 		}
 
 		const fetchProvincias = async () => {
-			const response = await fetch("http://localhost:8000/api/provincias"),
+			const response = await fetch("http://aw2022final.herokuapp.com/api/provincias"),
 				data = await response.json()
 
 			setProvincias(data.data)
@@ -28,14 +28,14 @@ export const Cervecerias = () => {
 	
 	useEffect(() => {
 		const fetchCervecerias = async () => {
-			const response = await fetch("http://localhost:8000/api/cervecerias?provincia_id="+provincia_id),
+			const response = await fetch("http://aw2022final.herokuapp.com/api/cervecerias?provincia_id="+provincia_id),
 				data = await response.json()
 
 			setCervecerias(data.data)
 		}
 
 		const fetchLocalidades = async () => {
-			const response = await fetch("http://localhost:8000/api/localidades?provincia_id="+provincia_id),
+			const response = await fetch("http://aw2022final.herokuapp.com/api/localidades?provincia_id="+provincia_id),
 				data = await response.json()
 
 			setLocalidades(data.data)
@@ -54,7 +54,7 @@ export const Cervecerias = () => {
 	
 	useEffect(() => {
 		const fetchCervecerias = async () => {
-			const response = await fetch("http://localhost:8000/api/cervecerias?localidad_id="+localidad_id),
+			const response = await fetch("http://aw2022final.herokuapp.com/api/cervecerias?localidad_id="+localidad_id),
 				data = await response.json()
 
 			setCervecerias(data.data)

@@ -21,7 +21,7 @@ export const Cervezas = () => {
 		}
 		
 		const fetchCervezas = async () => {
-			const response = await fetch('http://localhost:8000/api/cervezas?' + params),
+			const response = await fetch('http://aw2022final.herokuapp.com/api/cervezas?' + params),
 				data = await response.json()
 
 			setCervezas(data.data)
