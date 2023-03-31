@@ -52,7 +52,7 @@ export const DetalleProductor = () => {
 				<div className="col-md-8 col-sm-12 row item-list">
 					{productor.media && productor.media.length && productor.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-							<a href={"https://http://aw2022final.herokuapp.com"+imagen.original_url}  target='_blank' rel='noreferrer'>
+							<a href={"https://aw2022final.herokuapp.com"+imagen.original_url}  target='_blank' rel='noreferrer'>
 								<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
 							</a>
 						</div>
@@ -72,7 +72,7 @@ export const DetalleProductor = () => {
 							<div className='card-body'>
 								<div style={{textAlign:'center'}}>
 									{cerveza.media && cerveza.media.length
-										? <img className='thumb_galeria' src={"https://http://aw2022final.herokuapp.com"+cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
+										? <img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
 										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
 								</div>
 								<hr/>
