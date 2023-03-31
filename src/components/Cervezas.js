@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import botellita from '../assets/images/botellita.png'
 
 export const Cervezas = () => {	 
 	const [cervezas, setCervezas] = useState([]),
@@ -112,6 +113,12 @@ export const Cervezas = () => {
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>
 							</div>
 							<div className='card-body'>
+								<div style={{textAlign:'center'}}>
+									{cerveza.media
+										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={96} height={96}/>
+										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
+								</div>
+								<hr/>
 								IBU: {cerveza.ibu}<br/>
 								ABV: {cerveza.abv}<br/>
 								{cerveza.srm ? <div>SRM: {cerveza.srm}</div> : <></>}

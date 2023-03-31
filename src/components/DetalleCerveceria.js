@@ -30,7 +30,7 @@ export const DetalleCerveceria = () => {
   	return (
     	<div className="main-body">
 			<div className="row" style={{justifyContent: "space-between"}}>
-				<div className="col-3">
+				<div className="col-md-3 col-sm-12">
 					<h1>{cerveceria.nombre}</h1>
 					<hr/>
 					<h3>{cerveceria.localidad}</h3>
@@ -50,7 +50,7 @@ export const DetalleCerveceria = () => {
 													<i className="bi bi-youtube" style={{fontSize: "2.25rem", color: "red"}}></i></a> : <></>}
 					</div>
 				</div>
-				<div className="col-8 row item-list">
+				<div className="col-md-8 col-sm-12 row item-list">
 					{cerveceria.media && cerveceria.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 							<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
@@ -70,9 +70,11 @@ export const DetalleCerveceria = () => {
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>
 							</div>
 							<div className='card-body'>
-								{cerveza.media
-									? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={96} height={96}/>
-									: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
+								<div style={{textAlign:'center'}}>
+									{cerveza.media
+										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={96} height={96}/>
+										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
+								</div>
 								<hr/>
 								IBU: {cerveza.ibu}<br/>
 								ABV: {cerveza.abv}<br/>

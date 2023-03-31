@@ -28,7 +28,7 @@ export const DetalleCerveza = () => {
   	return (
     	<div className="main-body">
 			<div className="row" style={{justifyContent: "space-between"}}>
-				<div className="col-3">
+				<div className="col-md-3 col-sm-12">
 					<h1>{cerveza.nombre}</h1>
 					<hr/>
 					<h3><b>Productor:</b> <a href={"/detalleProductor/"+cerveza.productor_id}>{cerveza.productor}</a></h3>
@@ -38,7 +38,7 @@ export const DetalleCerveza = () => {
 					{cerveza.srm ? <div><h5><b>SRM:</b> {cerveza.srm}</h5></div> : <></>}
 					{cerveza.og ? <div><h5><b>OG:</b> {cerveza.og}</h5></div> : <></>}
 				</div>
-				<div className="row item-list col-8">
+				<div className="col-md-8 col-sm-12 row item-list">
 					{cerveza.media && cerveza.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
 							<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
