@@ -53,7 +53,7 @@ export const DetalleCerveceria = () => {
 				<div className="col-md-8 col-sm-12 row item-list">
 					{cerveceria.media && cerveceria.media.length && cerveceria.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-							<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
+							<img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
 						</div>
 					)}
 				</div>
@@ -72,7 +72,7 @@ export const DetalleCerveceria = () => {
 							<div className='card-body'>
 								<div style={{textAlign:'center'}}>
 									{cerveza.media && cerveza.media.length
-										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
+										? <img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
 										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
 								</div>
 								<hr/>

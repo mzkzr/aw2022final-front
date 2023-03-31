@@ -41,7 +41,7 @@ export const DetalleCerveza = () => {
 				<div className="col-md-8 col-sm-12 row item-list">
 					{cerveza.media && cerveza.media.map(imagen =>
 						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-							<img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
+							<img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
 						</div>
 					)}
 				</div>

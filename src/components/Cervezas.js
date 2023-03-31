@@ -115,7 +115,7 @@ export const Cervezas = () => {
 							<div className='card-body'>
 								<div style={{textAlign:'center'}}>
 									{cerveza.media && cerveza.media.length
-										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
+										? <img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
 										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
 								</div>
 								<hr/>
