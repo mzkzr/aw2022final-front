@@ -119,3 +119,11 @@ Body {
 .desc-cerveza {
     font-size: x-large;
 }
+
+.thumb_galeria {
+    transition: transform .2s;
+}
+  
+.thumb_galeria:hover {
+    transform: scale(1.25);
+}

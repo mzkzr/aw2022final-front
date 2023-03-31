@@ -27,14 +27,26 @@ export const DetalleCerveza = () => {
 
   	return (
     	<div className="main-body">
-			<h1>{cerveza.nombre}</h1>
-			<hr/>
-			<h3><b>Productor:</b> <a href={"/detalleProductor/"+cerveza.productor_id}>{cerveza.productor}</a></h3>
-			<br/>
-			<h5><b>IBU:</b> {cerveza.ibu}</h5>
-			<h5><b>ABV:</b> {cerveza.abv}</h5>
-			{cerveza.srm ? <div><h5><b>SRM:</b> {cerveza.srm}</h5></div> : <></>}
-			{cerveza.og ? <div><h5><b>OG:</b> {cerveza.og}</h5></div> : <></>}
+			<div className="row" style={{justifyContent: "space-between"}}>
+				<div className="col-3">
+					<h1>{cerveza.nombre}</h1>
+					<hr/>
+					<h3><b>Productor:</b> <a href={"/detalleProductor/"+cerveza.productor_id}>{cerveza.productor}</a></h3>
+					<br/>
+					<h5><b>IBU:</b> {cerveza.ibu}</h5>
+					<h5><b>ABV:</b> {cerveza.abv}</h5>
+					{cerveza.srm ? <div><h5><b>SRM:</b> {cerveza.srm}</h5></div> : <></>}
+					{cerveza.og ? <div><h5><b>OG:</b> {cerveza.og}</h5></div> : <></>}
+				</div>
+				<div className="row item-list col-8">
+					{cerveza.media && cerveza.media.map(imagen =>
+						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
+							<img src={imagen.original_url} alt={imagen.file_name}/>
+						</div>
+					)}
+				</div>
+			</div>
+			<br/>			
 			{cerveza.descripcion ? <div><br/><p className="desc-cerveza"><b><i>"{cerveza.descripcion}"</i></b></p></div> : <></>}
 			<hr/><hr/><br/>
 			<h2>Cervecerías que la comercializan</h2>
