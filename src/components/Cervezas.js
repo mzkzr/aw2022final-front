@@ -114,8 +114,8 @@ export const Cervezas = () => {
 							</div>
 							<div className='card-body'>
 								<div style={{textAlign:'center'}}>
-									{cerveza.media
-										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={96} height={96}/>
+									{cerveza.media && cerveza.media.length
+										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
 										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
 								</div>
 								<hr/>
