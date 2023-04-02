@@ -53,7 +53,7 @@ export const DetalleCerveza = () => {
 					<div className='row item-list'>
 						{cervecerias.map(cerveceria =>
 							<div key={cerveceria.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-								<div className='card'>
+								<div className='card datos_tarjeta'>
 									<div className='card-header'>
 										<a href={"/detalleCerveceria/"+cerveceria.id}>{cerveceria.nombre}</a>
 									</div>

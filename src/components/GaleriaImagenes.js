@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css"
 export const GaleriaImagenes = (props) => {
     var slider_settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -41,7 +41,7 @@ export const GaleriaImagenes = (props) => {
                 {props.media && props.media.length > 0 && props.media.map(imagen =>
                     <div key={imagen.id}>
                         <a href={imagen.original_url}  target='_blank' rel='noreferrer'>
-                            <img className='thumb_galeria' src={imagen.original_url} alt={imagen.file_name} width={320} height={320}/>
+                            <img src={imagen.original_url} alt={imagen.file_name} width={320} height={320}/>
                         </a>
                     </div>
                 )}

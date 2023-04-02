@@ -108,21 +108,21 @@ export const Cervezas = () => {
 			<div className='row item-list'>
 				{cervezas.map(cerveza =>
 					<div key={cerveza.id} className='col-sm-12 col-md-auto d-md-md-flex align-items-stretch'>
-						<div className='card'>
+						<div className='card datos_tarjeta'>
 							<div className='card-header'>
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>
 							</div>
 							<div className='card-body'>
 								<div style={{textAlign:'center'}}>
 									{cerveza.media && cerveza.media.length
-										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
-										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
+										? <img src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={256} height={256}/>
+										: <img src={botellita} alt="botellita.png" width={256} height={256}/>}
 								</div>
 								<hr/>
 								IBU: {cerveza.ibu}<br/>
 								ABV: {cerveza.abv}<br/>
-								{cerveza.srm ? <div>SRM: {cerveza.srm}</div> : <></>}
-								{cerveza.og ? <div>OG: {cerveza.og}</div> : <></>}
+								SRM: {cerveza.srm}<br/>
+								OG: {cerveza.og}
 							</div>
 						</div>
 					</div>
