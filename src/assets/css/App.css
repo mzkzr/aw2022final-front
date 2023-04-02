@@ -57,12 +57,12 @@ Body {
 }
 
 #footer-content img {
-    max-width: 25%;
+    max-width: 100%;
 }
 
 #footer-content p u {
     font-weight: bold;
-    font-size: x-large;
+    font-size: large;
 }
 
 .backToTop {

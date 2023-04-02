@@ -3,7 +3,7 @@ import botellita from '../assets/images/botellita.png'
 
 export const Cervezas = () => {	 
 	const [cervezas, setCervezas] = useState([]),
-		[form, setForm] = useState("")
+		  [form, setForm] = useState("")
 
 	useEffect(() => {
 		let params = ""
@@ -21,7 +21,7 @@ export const Cervezas = () => {
 		}
 		
 		const fetchCervezas = async () => {
-			const response = await fetch('https://aw2022final.herokuapp.com/api/cervezas?' + params),
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/cervezas?"+params),
 				data = await response.json()
 
 			setCervezas(data.data)
@@ -115,7 +115,7 @@ export const Cervezas = () => {
 							<div className='card-body'>
 								<div style={{textAlign:'center'}}>
 									{cerveza.media && cerveza.media.length
-										? <img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
+										? <img className='thumb_galeria' src={cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
 										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
 								</div>
 								<hr/>

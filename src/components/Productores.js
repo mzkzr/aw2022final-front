@@ -9,14 +9,14 @@ export const Productores = () => {
 
 	useEffect(() => {
 		const fetchProductores = async () => {
-		   	const response = await fetch("https://aw2022final.herokuapp.com/api/productores"),
+		   	const response = await fetch(process.env.REACT_APP_API_URL+"/api/productores"),
 		   		data = await response.json()
 
 			setProductores(data.data)
 		}
 
 		const fetchProvincias = async () => {
-			const response = await fetch("https://aw2022final.herokuapp.com/api/provincias"),
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/provincias"),
 				data = await response.json()
 
 			setProvincias(data.data)
@@ -28,14 +28,14 @@ export const Productores = () => {
 	
 	useEffect(() => {
 		const fetchProductores = async () => {
-			const response = await fetch("https://aw2022final.herokuapp.com/api/productores?provincia_id="+provincia_id),
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/productores?provincia_id="+provincia_id),
 				data = await response.json()
 
 			setProductores(data.data)
 		}
 
 		const fetchLocalidades = async () => {
-			const response = await fetch("https://aw2022final.herokuapp.com/api/localidades?provincia_id="+provincia_id),
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/localidades?provincia_id="+provincia_id),
 				data = await response.json()
 
 			setLocalidades(data.data)
@@ -54,7 +54,7 @@ export const Productores = () => {
 	
 	useEffect(() => {
 		const fetchProductores = async () => {
-			const response = await fetch("https://aw2022final.herokuapp.com/api/productores?localidad_id="+localidad_id),
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/productores?localidad_id="+localidad_id),
 				data = await response.json()
 
 			setProductores(data.data)

@@ -1,38 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import botellita from '../assets/images/botellita.png'
+import { ListaCervezas } from './ListaCervezas'
+import { GaleriaImagenes } from './GaleriaImagenes'
 
 export const DetalleCerveceria = () => {
 	const params = useParams(),
-		[cerveceria, setCerveceria] = useState({}),
-		[cervezas, setCervezas] = useState([])
+		[cerveceria, setCerveceria] = useState({})
 
 	useEffect(() => {
 		const fetchCerveceria = async () => {
-			const response = await fetch("https://aw2022final.herokuapp.com/api/cervecerias/"+params.id),
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/cervecerias/"+params.id),
 				data = await response.json()
 
 			setCerveceria(data.data)
 		}
 
-		const fetchCervezas = async () => {
-			const response = await fetch('https://aw2022final.herokuapp.com/api/cervezas?cerveceria_id=' + params.id),
-				data = await response.json()
-
-		 	setCervezas(data.data)
-	 	}
-
-		 fetchCerveceria()
-		fetchCervezas()
+		fetchCerveceria()
 	}, [params.id])
-
 
   	return (
     	<div className="main-body">
 			<div className="row" style={{justifyContent: "space-between"}}>
-				<div className="col-md-3 col-sm-12">
-					<h1>{cerveceria.nombre}</h1>
-					<hr/>
+				<h1>{cerveceria.nombre}</h1>
+				<hr/>
+				<div className="col-md-4 col-sm-12">
 					<h3>{cerveceria.localidad}</h3>
 					<h4>{cerveceria.provincia}</h4>
 					<br/>
@@ -42,49 +33,19 @@ export const DetalleCerveceria = () => {
 					{cerveceria.email ? <h5><b>Email:</b> {cerveceria.email}</h5> : <></>}
 					<br/>
 					<div className="row">
-						{cerveceria.instagram ? <a href={"https://"+cerveceria.instagram} className="col-auto" title="Instagram" target='_blank' rel='noreferrer'>
+						{cerveceria.instagram ? <a href={cerveceria.instagram} className="col-auto" title="Instagram" target='_blank' rel='noreferrer'>
 													<i className="bi bi-instagram" style={{fontSize: "2.25rem", color: "#f401c6"}}></i></a> : <></>}
-						{cerveceria.facebook ? <a href={"https://"+cerveceria.facebook} className="col-auto" title="Facebook" target='_blank' rel='noreferrer'>
+						{cerveceria.facebook ? <a href={cerveceria.facebook} className="col-auto" title="Facebook" target='_blank' rel='noreferrer'>
 													<i className="bi bi-facebook" style={{fontSize: "2.25rem"}}></i></a> : <></>}
-						{cerveceria.youtube ? <a href={"https://"+cerveceria.youtube} className="col-auto" title="Youtube" target='_blank' rel='noreferrer'>
+						{cerveceria.youtube ? <a href={cerveceria.youtube} className="col-auto" title="Youtube" target='_blank' rel='noreferrer'>
 													<i className="bi bi-youtube" style={{fontSize: "2.25rem", color: "red"}}></i></a> : <></>}
 					</div>
 				</div>
-				<div className="col-md-8 col-sm-12 row item-list">
-					{cerveceria.media && cerveceria.media.length && cerveceria.media.map(imagen =>
-						<div key={imagen.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-							<img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+imagen.original_url} alt={imagen.file_name} width={256} height={256}/>
-						</div>
-					)}
+				<div className="col-md-8 col-sm-12">
+					<GaleriaImagenes media = {cerveceria.media}/>
 				</div>
 			</div>
-
-			<br/><hr/><hr/><br/>
-			<h2>Cervezas que comercializa</h2>
-			<hr/>
-			<div className='row item-list'>
-				{cervezas.map(cerveza =>
-					<div key={cerveza.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-						<div className='card'>
-							<div className='card-header'>
-								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>
-							</div>
-							<div className='card-body'>
-								<div style={{textAlign:'center'}}>
-									{cerveza.media && cerveza.media.length
-										? <img className='thumb_galeria' src={"https://aw2022final.herokuapp.com"+cerveza.media[0].original_url} alt={cerveza.media[0].full_name} width={128} height={128}/>
-										: <img className='thumb_galeria' src={botellita} alt="botellita.png" width={128} height={128}/>}
-								</div>
-								<hr/>
-								IBU: {cerveza.ibu}<br/>
-								ABV: {cerveza.abv}<br/>
-								SRM: {cerveza.srm}<br/>
-								OG: {cerveza.og}
-							</div>
-						</div>
-					</div>
-				)}
-			</div>
+			<ListaCervezas titulo = "Cervezas que comercializa"/>
 		</div>
   	)
 }
