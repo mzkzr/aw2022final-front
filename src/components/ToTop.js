@@ -21,10 +21,10 @@ export const ToTop = () => {
   	}
 
   	return (
-		<div>
+		<>
 			{scrollTop && (
 				<i onClick={bottomToTop} className="backToTop bi bi-arrow-up-circle-fill" title="Volver arriba"></i>
 			)}
-		</div>
+		</>
   	)
 }

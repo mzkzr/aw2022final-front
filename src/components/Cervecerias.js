@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 export const Cervecerias = () => {
 	const [cervecerias, setCervecerias] = useState([]),
-		[provincia_id, setProvincia] = useState(""),
-		[provincias, setProvincias] = useState([]),
-		[localidad_id, setLocalidad] = useState(""),
-		[localidades, setLocalidades] = useState([])
+		  [provincia_id, setProvincia] = useState(""),
+		  [provincias, setProvincias] = useState([]),
+		  [localidad_id, setLocalidad] = useState(""),
+		  [localidades, setLocalidades] = useState([])
 
 	useEffect(() => {
 		const fetchCervecerias = async () => {
@@ -51,7 +51,6 @@ export const Cervecerias = () => {
 		}
 	}, [provincia_id])
 
-	
 	useEffect(() => {
 		const fetchCervecerias = async () => {
 			const response = await fetch(process.env.REACT_APP_API_URL+"/api/cervecerias?localidad_id="+localidad_id),
@@ -99,7 +98,7 @@ export const Cervecerias = () => {
 								Provincia: {cerveceria.provincia}<br/>
 								Localidad: {cerveceria.localidad}<br/>
 								Domicilio: {cerveceria.domicilio}<br/>
-								{cerveceria.horario_atención ? <div>Horario de atención: {cerveceria.horario_atencion}</div> : <></>}
+								{cerveceria.horario_atención ? <>Horario de atención: {cerveceria.horario_atencion}</> : <></>}
 							</div>
 						</div>
 					</div>

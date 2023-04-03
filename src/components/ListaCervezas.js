@@ -18,9 +18,9 @@ export const ListaCervezas = (props) => {
 	}, [params.id])
 
     return (
-        <div>
+        <>
             {cervezas.length > 0 &&
-                <div>
+                <>
                     <br/><hr/><hr/><br/>
                     <h2>{props.titulo}</h2>
                     <hr/>
@@ -47,8 +47,8 @@ export const ListaCervezas = (props) => {
                             </div>
                         )}
                     </div>
-                </div>
+                </>
             }
-        </div>
+        </>
     )
 }

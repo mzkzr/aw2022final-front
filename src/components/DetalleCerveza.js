@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { GaleriaImagenes } from './GaleriaImagenes'
+import { ListaCervecerias } from './ListaCervecerias'
 
 export const DetalleCerveza = () => {
 	const params = useParams(),
-		[cerveza, setCerveza] = useState({}),
-		[cervecerias, setCervecerias] = useState([])
+		  [cerveza, setCerveza] = useState({})
 
 	useEffect(() => {
 		const fetchCerveza = async () => {
@@ -15,15 +15,7 @@ export const DetalleCerveza = () => {
 			setCerveza(data.data)
 		}
 
-		const fetchCervecerias = async () => {
-			const response = await fetch(process.env.REACT_APP_API_URL+"/api/cervecerias?cerveza_id="+params.id),
-				data = await response.json()
-
-			setCervecerias(data.data)
-		}
-
 		fetchCerveza()
-		fetchCervecerias()
 	}, [params.id])
 
   	return (
@@ -36,39 +28,16 @@ export const DetalleCerveza = () => {
 					<br/>
 					<h5><b>IBU:</b> {cerveza.ibu}</h5>
 					<h5><b>ABV:</b> {cerveza.abv}</h5>
-					{cerveza.srm ? <div><h5><b>SRM:</b> {cerveza.srm}</h5></div> : <></>}
-					{cerveza.og ? <div><h5><b>OG:</b> {cerveza.og}</h5></div> : <></>}
+					{cerveza.srm ? <h5><b>SRM:</b> {cerveza.srm}</h5> : <></>}
+					{cerveza.og ? <h5><b>OG:</b> {cerveza.og}</h5> : <></>}
 				</div>
 				<div className="col-md-8 col-sm-12">
 					<GaleriaImagenes media = {cerveza.media}/>
 				</div>
 			</div>
 			<br/>			
-			{cerveza.descripcion ? <div><br/><p className="desc-cerveza"><b><i>"{cerveza.descripcion}"</i></b></p></div> : <></>}
-			{cervecerias.length > 0 &&
-				<div>
-					<hr/><hr/><br/>
-					<h2>Cervecerías que la comercializan</h2>
-					<hr/>
-					<div className='row item-list'>
-						{cervecerias.map(cerveceria =>
-							<div key={cerveceria.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
-								<div className='card datos_tarjeta'>
-									<div className='card-header'>
-										<a href={"/detalleCerveceria/"+cerveceria.id}>{cerveceria.nombre}</a>
-									</div>
-									<div className='card-body'>
-										Provincia: {cerveceria.provincia}<br/>
-										Localidad: {cerveceria.localidad}<br/>
-										Domicilio: {cerveceria.domicilio}<br/>
-										{cerveceria.horario_atención ? <div>Horario de atención: {cerveceria.horario_atencion}</div> : <></>}
-									</div>
-								</div>
-							</div>
-						)}
-					</div>
-				</div>
-			}
+			{cerveza.descripcion ? <><br/><p className="desc-cerveza"><b><i>"{cerveza.descripcion}"</i></b></p></> : <></>}
+			<ListaCervecerias/>
 		</div>
   	)
 }

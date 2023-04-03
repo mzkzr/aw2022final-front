@@ -36,7 +36,7 @@ export const GaleriaImagenes = (props) => {
     }
 
     return (
-        <div>
+        <>
             <Slider {...slider_settings}>
                 {props.media && props.media.length > 0 && props.media.map(imagen =>
                     <div key={imagen.id}>
@@ -46,6 +46,6 @@ export const GaleriaImagenes = (props) => {
                     </div>
                 )}
             </Slider>
-        </div>
+        </>
     )
 }

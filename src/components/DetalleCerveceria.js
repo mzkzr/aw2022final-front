@@ -28,7 +28,7 @@ export const DetalleCerveceria = () => {
 					<h4>{cerveceria.provincia}</h4>
 					<br/>
 					<h5><b>Domicilio:</b> {cerveceria.domicilio}</h5>
-					{cerveceria.horario_atención ? <div><h5><b>OG:</b> {cerveceria.horario_atención}</h5></div> : <></>}
+					{cerveceria.horario_atención ? <h5><b>OG:</b> {cerveceria.horario_atención}</h5> : <></>}
 					{cerveceria.telefono ? <h5><b>Teléfono:</b> {cerveceria.telefono}</h5> : <></>}
 					{cerveceria.email ? <h5><b>Email:</b> {cerveceria.email}</h5> : <></>}
 					<br/>
