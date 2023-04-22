@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 
 export const Productores = () => {
   	const [productores, setProductores] = useState([]),
 		[provincia_id, setProvincia] = useState(""),
 		[provincias, setProvincias] = useState([]),
 		[localidad_id, setLocalidad] = useState(""),
-		[localidades, setLocalidades] = useState([])
+		[localidades, setLocalidades] = useState([]),
+		rowRef = useRef(null)
 
 	useEffect(() => {
 		const fetchProductores = async () => {
@@ -63,6 +64,22 @@ export const Productores = () => {
 		fetchProductores()
 	}, [localidad_id])
 
+	useEffect(() => {
+		const cards = rowRef.current.querySelectorAll(".card")
+		let maxWidth = 0
+		cards.forEach((card) => {
+			const width = card.getBoundingClientRect().width
+			if (width > maxWidth) {
+				maxWidth = width
+				console.log(maxWidth)
+			}
+		})
+	
+		cards.forEach((card) => {
+		  	card.style.width = `${maxWidth}px`
+		})
+	}, [productores])
+
   	return (
     	<div className="main-body">
 			<h1>Productores</h1>
@@ -88,21 +105,23 @@ export const Productores = () => {
 				</div>
 			</div>
 			<hr/>
-			<div className="row item-list">
-				{productores.map(productor =>
-					<div key={productor.id} className="col-sm-12 col-md-auto d-md-flex align-items-stretch">
-						<div className="card">
-							<div className="card-header">
-								<a href={"/detalleProductor/"+productor.id}>{productor.nombre}</a>
-							</div>
-							<div className="card-body">
-								Provincia: {productor.provincia}<br/>
-								Localidad: {productor.localidad}<br/>
-								Domicilio: {productor.domicilio}
-							</div>
+			<div className="row row-cols-1 row-cols-md-auto item-list" ref={rowRef}>
+				{productores.map((productor) => (
+					<div key={productor.id} className="col">
+					<div className="card">
+						<div className="card-header">
+						<a href={"/detalleProductor/" + productor.id}>{productor.nombre}</a>
+						</div>
+						<div className="card-body">
+						Provincia: {productor.provincia}
+						<br />
+						Localidad: {productor.localidad}
+						<br />
+						Domicilio: {productor.domicilio}
 						</div>
 					</div>
-				)}
+					</div>
+				))}
 			</div>
 		</div>
   	)

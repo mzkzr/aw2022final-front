@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 export const Cervecerias = () => {
 	const [cervecerias, setCervecerias] = useState([]),
 		  [provincia_id, setProvincia] = useState(""),
 		  [provincias, setProvincias] = useState([]),
 		  [localidad_id, setLocalidad] = useState(""),
-		  [localidades, setLocalidades] = useState([])
+		  [localidades, setLocalidades] = useState([]),
+		  rowRef = useRef(null)
 
 	useEffect(() => {
 		const fetchCervecerias = async () => {
@@ -62,6 +63,22 @@ export const Cervecerias = () => {
 		fetchCervecerias()
 	}, [localidad_id])
 
+	useEffect(() => {
+		const cards = rowRef.current.querySelectorAll(".card")
+		let maxWidth = 0
+		cards.forEach((card) => {
+			const width = card.getBoundingClientRect().width
+			if (width > maxWidth) {
+				maxWidth = width
+				console.log(maxWidth)
+			}
+		})
+	
+		cards.forEach((card) => {
+		  	card.style.width = `${maxWidth}px`
+		})
+	}, [cervecerias])
+
   	return (
     	<div className="main-body">
 			<h1>Cervecerías</h1>
@@ -87,9 +104,9 @@ export const Cervecerias = () => {
 				</div>
 			</div>
 			<hr/>
-			<div className='row item-list'>
+			<div className="row row-cols-1 row-cols-md-auto item-list" ref={rowRef}>
 				{cervecerias.map(cerveceria =>
-					<div key={cerveceria.id} className='col-sm-12 col-md-auto d-md-flex align-items-stretch'>
+					<div key={cerveceria.id} className='col'>
 						<div className='card'>
 							<div className='card-header'>
 								<a href={"/detalleCerveceria/"+cerveceria.id}>{cerveceria.nombre}</a>

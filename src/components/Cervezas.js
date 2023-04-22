@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import botellita from '../assets/images/botellita.png'
 
 export const Cervezas = () => {	 
 	const [cervezas, setCervezas] = useState([]),
-		  [form, setForm] = useState("")
+		  [form, setForm] = useState(""),
+		  rowRef = useRef(null)
 
 	useEffect(() => {
 		let params = ""
@@ -29,6 +30,22 @@ export const Cervezas = () => {
 
 		fetchCervezas()
 	}, [form])
+
+	useEffect(() => {
+		const cards = rowRef.current.querySelectorAll(".card")
+		let maxWidth = 0
+		cards.forEach((card) => {
+			const width = card.getBoundingClientRect().width
+			if (width > maxWidth) {
+				maxWidth = width
+				console.log(maxWidth)
+			}
+		})
+	
+		cards.forEach((card) => {
+		  	card.style.width = `${maxWidth}px`
+		})
+	}, [cervezas])
 
 	const handleSubmit = (e) => {
 		if (e.type === 'submit') {
@@ -105,10 +122,10 @@ export const Cervezas = () => {
 				</div>
 			</div>			
 			<hr/>
-			<div className='row item-list'>
+			<div className="row row-cols-1 row-cols-md-auto item-list" ref={rowRef}>
 				{cervezas.map(cerveza =>
-					<div key={cerveza.id} className='col-sm-12 col-md-auto d-md-md-flex align-items-stretch'>
-						<div className='card datos_tarjeta'>
+					<div key={cerveza.id} className='col'>
+						<div className='card'>
 							<div className='card-header'>
 								<a href={"/detalleCerveza/"+cerveza.id}>{cerveza.nombre}</a>
 							</div>
