@@ -70,7 +70,6 @@ export const Cervecerias = () => {
 			const width = card.getBoundingClientRect().width
 			if (width > maxWidth) {
 				maxWidth = width
-				console.log(maxWidth)
 			}
 		})
 	

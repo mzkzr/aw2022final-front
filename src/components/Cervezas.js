@@ -3,14 +3,27 @@ import botellita from '../assets/images/botellita.png'
 
 export const Cervezas = () => {	 
 	const [cervezas, setCervezas] = useState([]),
+		  [productores, setProductores] = useState([]),
 		  [form, setForm] = useState(""),
 		  rowRef = useRef(null)
+
+	useEffect(() => {
+		const fetchProductores = async () => {
+			const response = await fetch(process.env.REACT_APP_API_URL+"/api/productores"),
+				data = await response.json()
+
+			setProductores(data.data)
+		}
+
+		fetchProductores()
+	}, [])
 
 	useEffect(() => {
 		let params = ""
 
 		if (form) {
 			params += form.nombre !== "" ? "nombre=" + form.nombre + "&" : ""
+			params += form.productor !== "" ? "productor_id=" + form.productor + "&" : ""
 			params += form.abv_min !== "" ? "abv_min=" + form.abv_min  + "&" : ""
 			params += form.abv_max !== "" ? "abv_max=" + form.abv_max  + "&" : ""
 			params += form.ibu_min !== "" ? "ibu_min=" + form.ibu_min  + "&" : ""
@@ -38,7 +51,6 @@ export const Cervezas = () => {
 			const width = card.getBoundingClientRect().width
 			if (width > maxWidth) {
 				maxWidth = width
-				console.log(maxWidth)
 			}
 		})
 	
@@ -78,6 +90,15 @@ export const Cervezas = () => {
 							<div className="col-12">
 								<label htmlFor="nombre">Nombre</label>
 								<input id="nombre" name="nombre" className="form-control"/>
+							</div>
+							<div className="col-12">
+								<label htmlFor="productor">Productor</label>
+								<select id="productor" name="productor" className="form-select">
+									<option value="">Todos</option>
+									{productores.map(productor =>
+										<option key={productor.id} value={productor.id}>{productor.nombre}</option>
+									)}
+								</select>
 							</div>
 							<div className="col-6">
 								<label htmlFor="abv_min">ABV min.</label>
@@ -136,6 +157,7 @@ export const Cervezas = () => {
 										: <img src={botellita} alt="botellita.png" width={256} height={256}/>}
 								</div>
 								<hr/>
+								<b>Productor: {cerveza.productor}</b><br/>
 								IBU: {cerveza.ibu}<br/>
 								ABV: {cerveza.abv}<br/>
 								SRM: {cerveza.srm}<br/>

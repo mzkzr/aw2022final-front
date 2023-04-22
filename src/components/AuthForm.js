@@ -61,7 +61,7 @@ export const AuthForm = () => {
 						window.location.reload(true)
 					})
 				} else {
-					Swal.fire('Error', "lala", 'error')
+					Swal.fire('Error', data.message, 'error')
 				}
 			})
 		}
